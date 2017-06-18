@@ -105,7 +105,19 @@ void SetBackButtonBasedOnInterface(Page page)
 As you can see, this method basicaly takes a property from the Page coming in and decides on its value which Back Button Style to show.
 
 I am pretty sure there are different ways to pass data from the Common Xamarin project to the individual platform Projects, but in our case we choose to define an Interface with the property which we make our pages inherit from whenever we want to influence the style of the Back Button. 
-
+```csharp
+public interface INavigationActionBarConfig
+{
+	int BackButtonStyle { get; set; }
+	//Possible Values
+            // 0=default 
+            // 1=Hide 
+            // 2=Image & Text
+            // 3=Image only
+            // 4=Text only
+	    ...
+}
+```
 The pages implement the property and whenever we create a new page, we inject the requested style into the constructor of our page.
 ```csharp
 public partial class MenuPage : ContentPage, INavigationActionBarConfig
