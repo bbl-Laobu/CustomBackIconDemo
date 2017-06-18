@@ -4,7 +4,7 @@ Simple Custom Navigation Back Icon Demo for Xamarin Forms
 ## INTRODUCTION
 A simple demo application demonstrating how to change the Back button Icon and Style per individual page using Xamarin Forms and Custom Renderers.
 
-![Demo](https://raw.githubusercontent.com/bbl-Laobu/SlideMenuDemo/master/SimpleSlideMenuDemo.gif)
+![Demo](https://raw.githubusercontent.com/bbl-Laobu/CustomBackIconDemo/master/CustomBackIconDemo_opt.gif)
 
 ## DESCRIPTION
 Changing the Back Button directly from within the Xamarin.Forms is not possible. Therefore, to be able to change the icon and style of the Back button, a custom renderer per platform is needed.
