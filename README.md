@@ -19,9 +19,10 @@ public class CustomNavigationPage : NavigationPage
         {
         }
     }
-'''
+```
 
 On startup, this is the page we will asign to our MainPage.
+
 ```csharp
 public App()
         {
