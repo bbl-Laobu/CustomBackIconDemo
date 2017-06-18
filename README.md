@@ -32,9 +32,7 @@ public App()
 		}
 ```
 
-Now, somehow we need to intercept the rendering of the CustomNavigationPage therebye allowing us to change the Back Button.
-
-This is done by creating a NavigationPageRenderer class per platform and declare that the class will be called when the CustomNavigationPage is being rendered. We do this as follows in the IOS project (Android is similar):
+Now, somehow we need to intercept the rendering of the CustomNavigationPage therebye allowing us to change the Back Button. This is done by creating a NavigationPageRenderer class per platform and declare that the class will be called when the CustomNavigationPage is being rendered. We do this as follows in the iOS project (Android is similar):
 ```csharp
 [assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(NavigationPageRendererIOS))]
 namespace CustomBackIconDemo.iOS
@@ -43,11 +41,42 @@ namespace CustomBackIconDemo.iOS
     {
 ```
 
-See the 'assembly' line that links CustomNavigationPage to the NavigationPageRendererIOS class?
+See the 'assembly' line that links CustomNavigationPage to the NavigationPageRendererIOS class? 
+Also, notice of course that our NavigationPageRendererIOS inherits from the real NavigationRenderer class (Again, Android is similar).
 
-Now, notice of course that our NavigationPageRendererIOS from the real NavigationRenderer class. Again, Android is similar. 
+Next, as we now have a class that is called everytime we render the a page, we need to implement some methods to inject our own code.
 
+We use the OnPop and OnPush methods for that. Meaning, the OnPush method is called as a page is pushed onto the stack of the NavigationPage and OnPop is called when the page is removed from the stack. 
+The reason we are doing this way is because a NavigationPage has only 1 instance of the navigation bar at the top. Whenever we render the page, we need to decide what Back Button we would like to display both as we add a page(Push) or when we remove a page (Pop).
 
+For iOS this looks something like this: 
+```csharp
+protected override Task<bool> OnPushAsync(Page page, bool animated)
+	{
+            var retVal = base.OnPushAsync(page, true); // IMPORTANT: First call base
+            SetBackButtonBasedOnInterface(page);
+	    return retVal;
+        }
+
+        protected override Task<bool> OnPopViewAsync(Page page, bool animated)
+        {
+            var retVal = base.OnPopViewAsync(page, true); // IMPORTANT: First call base	
+            var returnPage = ((INavigationPageController)base.Element).StackCopy.ToArray()[1]; // get the page we are returning to
+            if (returnPage != null)
+            {
+                SetBackButtonBasedOnInterface(returnPage);
+            }
+
+            return retVal;
+        }
+```
+
+Simply put, we call the base methos, then overwrite the back button with whatever we decided and then return with the result of calling our base method.
+
+Notice however that the Page provided in the OnPushAsync is the page we are about to show. However, the Page provided for the OnPopViewAsync is not the page about to be displayed but the page to be remover. If we want the page that is about to be displayed, we need to retrieve it from the stack first.
+```csharp
+var returnPage = ((INavigationPageController)base.Element).StackCopy.ToArray()[1]; // get the page we are returning to
+```
 
 
 
