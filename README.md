@@ -73,11 +73,51 @@ protected override Task<bool> OnPushAsync(Page page, bool animated)
 
 Simply put, we call the base methos, then overwrite the back button with whatever we decided and then return with the result of calling our base method.
 
-Notice however that the Page provided in the OnPushAsync is the page we are about to show. However, the Page provided for the OnPopViewAsync is not the page about to be displayed but the page to be remover. If we want the page that is about to be displayed, we need to retrieve it from the stack first.
+Important to know is that the Page provided in the OnPushAsync is the page we are about to show. However, the Page provided for the OnPopViewAsync is not the page about to be displayed but the page to be removed. If we want the page that is about to be displayed, we need to retrieve it from the stack first.
 ```csharp
 var returnPage = ((INavigationPageController)base.Element).StackCopy.ToArray()[1]; // get the page we are returning to
 ```
 
+Retrieving the correct page to be displayed is needed as per page, we want to be able to decided what Back Button Style to show. To do this, we set a property per page that allows us to instruct the renderer which Back Button Style to show.
+
+As you can see in bot POP and PUSH methods, we are calling the metthod SetBackButtonBasedOnInterface(PAGE);
+```csharp
+void SetBackButtonBasedOnInterface(Page page)
+        {
+            if (page is INavigationActionBarConfig incomingPage)
+            {
+                switch (incomingPage.BackButtonStyle)
+                {
+                    case 0:
+                        SetDefaultBackButton();
+                        break;
+
+                    case 1:
+                        HideBackButton();
+                        break;
+
+                    case 2: // 2=Image & Text
+			SetImageTitleBackButton("Down", "Close", -15);
+                        break;
+		...
+```
+
+As you can see, this method basicaly takes a property from the PAge coming in and decides on its value which Back Button Style to show.
+
+I am pretty sure there are different ways to pass data from the Common Xamarin project to the individual platform Projects, but in our case we choose to define an Interface with the property which we make our pages inherit from whenever we want to influence the style of the Back Button. 
+
+The pages implement the property and whenever we create a new page, we inject the requested style into the constructor of our page.
+```csharp
+public partial class MenuPage : ContentPage, INavigationActionBarConfig
+{
+	public int BackButtonStyle { get; set; } // implementing INavigationActionBarConfig
+
+	public MenuPage(int backButtonStyle) : this()
+	{
+		BackButtonStyle = backButtonStyle; // see INavigationActionBarConfig for possible values
+	}
+	...
+```
 
 
 
