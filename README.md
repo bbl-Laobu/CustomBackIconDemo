@@ -2,28 +2,54 @@
 Simple Custom Navigation Back Icon Demo for Xamarin Forms
 
 ## INTRODUCTION
-A simple demo application demonstrating how to change the Back button Icon and style per indicidual page using CORE Xamarin Forms and Custom Renderers.
+A simple demo application demonstrating how to change the Back button Icon and Style per individual page using Xamarin Forms and Custom Renderers.
 
 ![Demo](https://raw.githubusercontent.com/bbl-Laobu/SlideMenuDemo/master/SimpleSlideMenuDemo.gif)
 
 ## DESCRIPTION
-The demo uses a combination of Grid Layout, Layers and Translate Animation to create a smooth Slide Menu when tapping the menu button at the bottom.
+Changing the Back Button directly from within the Xamarin.Forms is not possible. Therefore, to be able to change the icon and style of the Back button, a custom renderer per platform is needed.
 
-![Concept](https://raw.githubusercontent.com/bbl-Laobu/SlideMenuDemo/master/SlideMenuPictureA.png)
+As the Navigation Bar is part of the NavigationPage, we therefore need to override this class to be able to change the Back Button style as we render it. 
 
-A SlideUpMenuView defines the layout of the menu. This view is then used twice in the StartPage; once for the animation of sliding the menu up/down and once for detecting interactions when open.
+To do this, we need to firstly create a CustomNavigationPage in our Xamarin common project which will inhirit from NavigationPage and which we will use as a reference for our renderers.
+```csharp
+public class CustomNavigationPage : NavigationPage
+    {
+        public CustomNavigationPage(Page startupPage) : base(startupPage)
+        {
+        }
+    }
+'''
 
-To avoid any flickering, we must make sure that when switching between Animated SlideMenuView and Interactive SlideMenuView both are aligned perfectly. Therefore, we use a Grid Layout to position the Interactive SlideMenuView at exactly 240 (40 + 200) from the bottom of the screen. We place it there, hidden in the background behind the content view waiting to be shown when ready. 
+On startup, this is the page we will asign to our MainPage.
+```csharp
+public App()
+        {
+            InitializeComponent();
 
-When starting the app, we begin by showing the Animated SlideMenuView on Grid Row 2, 40 from the bottom. Once we get an event to slide open the menu, we move (Translate animation) the Animated SlideMenuView to Grid Row 1 (-200 vertically up). Once in place, we finish by Raising the Interactive SlideMenuView to the front of the Layout. The menu is now fully displayed and can be interacted with.
+            MainPage = new CustomNavigationPage(new StartPage()); // note that we are calling a standard content page here;
+		}
+```
 
-![Steps](https://github.com/bbl-Laobu/SlideMenuDemo/raw/master/SlideMenuPictureB.png)
+Now, somehow we need to intercept the rendering of the CustomNavigationPage therebye allowing us to change the Back Button.
 
-Using 2 SlideMenuViews is needed because when only using the Animated SlideViewMenu, Xamarin is unable to detect gestures on that SlideViewMenu as the interactive user controls on the layer underneath are still detected instead. This makes the menu visible but useless. 
+This is done by creating a NavigationPageRenderer class per platform and declare that the class will be called when the CustomNavigationPage is being rendered. We do this as follows in the IOS project (Android is similar):
+```csharp
+[assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(NavigationPageRendererIOS))]
+namespace CustomBackIconDemo.iOS
+{
+    public class NavigationPageRendererIOS : NavigationRenderer
+    {
+```
 
-Adding a second SlideMenuView, positioned exactly under the extended Animated menu and then moved in front when the animation is finished, solves the gesture detection problem, allowing for the interactive object of the menu to work.  
+See the 'assembly' line that links CustomNavigationPage to the NavigationPageRendererIOS class?
 
-To demonstrate this, a Carouselview was added which allows you to navigate to a Scrollview with many interactive user controls. Notice that the user controls underneath the menu do no longer work once the menu is extended.
+Now, notice of course that our NavigationPageRendererIOS from the real NavigationRenderer class. Again, Android is similar. 
+
+
+
+
+
 
 In conclusion; using this system should allow us to easily create any type of slide menu/form regardless of side, animation and size. We use grid to determine upfront where we want the menu to be displayed for interaction, and then use an animated version to move it to that exact location before switching between both. 
 
