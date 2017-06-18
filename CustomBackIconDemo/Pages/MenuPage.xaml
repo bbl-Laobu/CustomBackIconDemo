@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="CustomBackIconDemo.Pages.MenuPage" Title="Menu">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Silver" Padding="0" Spacing="0">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <!-- All Platforms -->
+                <StackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="0" Spacing="0">
+                    <Label Text="All Platforms" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Start" />
+                    <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Button Text="Default" Grid.Row="3" Grid.Column="1" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_DefaultAsync" />
+                <Button Text="Hide" Grid.Row="3" Grid.Column="3" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_HideAsync"/>
+                <Button Text="Image Only" Grid.Row="5" Grid.Column="1" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_ImageOnlyAsync"/>
+                <Button Text="Text Only" Grid.Row="5" Grid.Column="3" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_TextOnlyAsync"/>
+                <Button Text="Image+Text" Grid.Row="7" Grid.Column="1" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_ImageAndTextAsync"/>
+                <!-- IOS Buttons -->
+                <StackLayout Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Padding="0" Spacing="0">
+                    <Label Text="IOS" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Start" />
+                    <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Button Text="System Icon" Grid.Row="11" Grid.Column="1" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_SystemIconAsync"/>
+
+                 <!-- Android Buttons -->
+                <StackLayout Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="3" Padding="0" Spacing="0">
+                    <Label Text="Android" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Start" />
+                    <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Button Text="Img+Icon+Text" Grid.Row="15" Grid.Column="1" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_ImgIconTextAsync"/>
+                <Button Text="Hide Brand Icon" Grid.Row="15" Grid.Column="3" TextColor="White" BackgroundColor="Teal" BorderWidth="0" Clicked="Handle_HideBrandAsync"/>
+
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
