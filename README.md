@@ -1,8 +1,8 @@
-# SlideMenuDemo
-A simple but effective Xamarin Forms SlideMenu Demo
+# Custom Back Icon Demo
+Simple Custom Navigation Back Icon Demo for Xamarin Forms
 
 ## INTRODUCTION
-A simple demo application demonstrating how to create a Slide Menu using only CORE Xamarin Forms.
+A simple demo application demonstrating how to change the Back button Icon and style per indicidual page using CORE Xamarin Forms and Custom Renderers.
 
 ![Demo](https://raw.githubusercontent.com/bbl-Laobu/SlideMenuDemo/master/SimpleSlideMenuDemo.gif)
 
