@@ -102,7 +102,7 @@ void SetBackButtonBasedOnInterface(Page page)
 		...
 ```
 
-As you can see, this method basicaly takes a property from the PAge coming in and decides on its value which Back Button Style to show.
+As you can see, this method basicaly takes a property from the Page coming in and decides on its value which Back Button Style to show.
 
 I am pretty sure there are different ways to pass data from the Common Xamarin project to the individual platform Projects, but in our case we choose to define an Interface with the property which we make our pages inherit from whenever we want to influence the style of the Back Button. 
 
@@ -118,6 +118,35 @@ public partial class MenuPage : ContentPage, INavigationActionBarConfig
 	}
 	...
 ```
+This is handy as for the same page, we are able to request different Back Button Styles, simply by injecting different values into the constructor ar creation time.
+
+Check MenuPage.xaml.cs to see this in action, as in our demo our Result Page simply changes according to what we pass along.
+```csharp
+public partial class MenuPage : ContentPage, INavigationActionBarConfig
+{
+	...
+	async void Handle_DefaultAsync(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultPage(0));
+        }
+
+		async void Handle_HideAsync(object sender, System.EventArgs e)
+		{
+			await Navigation.PushAsync(new ResultPage(1));
+		}
+
+		async void Handle_ImageAndTextAsync(object sender, System.EventArgs e)
+		{
+			await Navigation.PushAsync(new ResultPage(2));
+		}
+		...
+```
+
+What each value does to the Style is up to you in the platform specific Renderer. Each platform can be different or you can decided to implement something different in one platform and the default for the same incoming value on another platform.
+
+## RENDERING
+
+
 
 
 
