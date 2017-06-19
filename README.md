@@ -1,5 +1,5 @@
 # Custom Back Button Style Demo
-Simple Custom Navigation PAge Back Button Style Demo for Xamarin Forms. 
+Simple Custom Navigation Page Back Button Style Demo for Xamarin Forms. 
 
 ## INTRODUCTION
 A simple demo application demonstrating how to change the Back Button Icon and Style in a Navigation Bar of a Navigation Page, per individual page using Xamarin Forms and Custom Renderers.
