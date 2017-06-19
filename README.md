@@ -169,4 +169,37 @@ A button can contain an image or a text so to set and Back arrow image and ‘Cl
 One of the main difference I found was that can have your button(s) follow the Tint property or not. A Tint is used to quickly set all buttons on the Navigation Bar to a certain color and can be very useful. On the other hand, sometimes you just want more control both in spacing and in colors. 
 In the code you will see that most methods follow the Tint property but methods CreateRightToolbarButtons and CreateLeftToolbarButtons were provided to set multi colored buttons.  
 
-![Demo](https://raw.githubusercontent.com/bbl-Laobu/CustomBackIconDemo/master/CustomBackIconDemo_opt.gif)
+![Demo](https://raw.githubusercontent.com/bbl-Laobu/CustomBackIconDemo/master/ColorTabButtons.png)
+
+To see this in action, simply uncomment ‘CreateRightToolbarButtons();’ in the OnPush method of the ‘NavigationPageRendererIOS’ class. Up to you do decide what you want to use.
+
+## NOTES ON ANDROID STYLING
+Android’s code to set the style seems a little compacter and so many configurations are set directly in the switch statement
+```csharp
+case 6: // 2=Image, Icon & Text 
+                        actionBar.SetHomeAsUpIndicator(CustomBackIconDemo.Droid.Resource.Drawable.backman_icon); // Show custom image
+                        actionBar.SetIcon(CustomBackIconDemo.Droid.Resource.Drawable.icon); // set Brand icon
+                        break; 
+ ```
+The scenarios mostly demonstrate how to replace the back image and show or hide the different elements.
+
+
+## ANDROID APPCOMPAT
+The Android specific class can choose to run with or without AppCompat classes ( AppCompat provides more compatibility with older Android devices).  When creating a new Xamarin.Froms project today, a template is created using the AppCompat package allowing for greater compatibility. 
+
+However, the demo at this stage is only able to work using the Non AppCompat configuration due. AppCompat and no AppCompat use different Navigation Renderers and while developing this demo, we discovered a bug where OnPop and OnPush are not accessible from the customer renderer thereby preventing us from injecting our own code. The bug was reported and a pull request was added (see https://bugzilla.xamarin.com/show_bug.cgi?id=57578).  I will update the code and documentation as soon as a fix has been released.  
+
+## Conclusion
+Using Custom renderers is the only way to fully take control of the Back Button Items on the different platforms. Once we implement this we are can pretty much take full control of what is shown without losing the power of the underlying classes of Xamarin Forms.
+
+Enjoy and any question or improvements, please let me know.
+
+Laobu!
+
+
+## REFERENCES
+- ‘Carousel View’ by alexrainman @ [https://github.com/alexrainman/CarouselView](https://github.com/alexrainman/CarouselView)
+
+## ATHOR
+Laobu – Bernard Blanckaert
+
