@@ -33,7 +33,7 @@ public App()
 		}
 ```
 
-## OUR CUSTOM RENDERER
+## THE CUSTOM RENDERER
 Somehow, we need to intercept the rendering of the CustomNavigationPage therebye allowing us to change the Back Button Style to the one we desire. This is done by creating a NavigationPageRenderer class in the platform specific projects and declare that the class will be called when the CustomNavigationPage is being requested. We do this as follows in the iOS project (Android is similar):
 ```csharp
 [assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(NavigationPageRendererIOS))]
