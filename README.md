@@ -208,7 +208,11 @@ Laobu!
 
 
 ## REFERENCES
-- ‘Carousel View’ by alexrainman @ [https://github.com/alexrainman/CarouselView](https://github.com/alexrainman/CarouselView)
+- ‘Custom Renderers’ by Xamarin @ [https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/)
+- ‘How to change the navigation page back icon?’ by JESSEJIANG @ [https://jessejiang.xyz/2016/01/17/how-to-change-the-navigation-page-back-icon/](https://jessejiang.xyz/2016/01/17/how-to-change-the-navigation-page-back-icon/)
+- ‘Reduce Toolbar Icon Padding(Xamarin.Forms)’ by Cameron Wood @ [https://stackoverflow.com/questions/39144099/reduce-toolbar-icon-paddingxamarin-forms](https://stackoverflow.com/questions/39144099/reduce-toolbar-icon-paddingxamarin-forms)
+- ‘NavigationRender Issue’@ [https://forums.xamarin.com/discussion/27745/navigationrender-issue](https://forums.xamarin.com/discussion/27745/navigationrender-issue)
+- ‘iOS and Android Design Guidelines Cheat Sheet’ by Jake McKibben @ [https://www.kinvey.com/ios-and-android-design-guidelines-cheat-sheet/](https://www.kinvey.com/ios-and-android-design-guidelines-cheat-sheet/)
 
 ## ATHOR
 Laobu – Bernard Blanckaert
