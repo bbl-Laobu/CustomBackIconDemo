@@ -177,9 +177,9 @@ To see this in action, simply uncomment ‘CreateRightToolbarButtons();’ in th
 Android’s code to set the style seems a little compacter and so many configurations are set directly in the switch statement
 ```csharp
 case 6: // 2=Image, Icon & Text 
-                        actionBar.SetHomeAsUpIndicator(CustomBackIconDemo.Droid.Resource.Drawable.backman_icon); // Show custom image
-                        actionBar.SetIcon(CustomBackIconDemo.Droid.Resource.Drawable.icon); // set Brand icon
-                        break; 
+        actionBar.SetHomeAsUpIndicator(CustomBackIconDemo.Droid.Resource.Drawable.backman_icon); // Show custom image
+        actionBar.SetIcon(CustomBackIconDemo.Droid.Resource.Drawable.icon); // set Brand icon
+        break; 
  ```
 The scenarios mostly demonstrate how to replace the back image and show or hide the different elements.
 
