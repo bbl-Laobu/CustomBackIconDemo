@@ -156,24 +156,17 @@ public partial class MenuPage : ContentPage, INavigationActionBarConfig
 
 What each value does to the Style is up to you in the platform specific Renderer. Each platform can be different or you can decided to implement something different in one platform and the default for the same incoming value on another platform.
 
-## RENDERING
+## WHAT WE DID UP TILL NOW
+Let’s recap; we used a custom NavigationPage to initiated our Main. We then created render classes per platform specific project and in those classes referenced back to our Custom Navigation Page to make sure the renderer is used every time we POP or PUSH a page. Lastly, we added a property per page using an Interface which allows us to set a Style ‘flag’, which will be picked up in the renderer and used to display the correct style for that platform. Time for us to now actually set the Style we want.  
 
+## SETTING A SPECIFIC BACK BUTTON STYLE
+The classes and properties to set the new Back Button Style are very different per platform. This is normal as we are now directly talking to the structures within the platforms. Multiple practical samples with comments are provided for both iOS and Android which demonstrate different types of Styles.  
 
+## NOTES ON iOS STYLING
+For iOS, it is possible to set 1 button (LeftBarButtonItem property) or multiple (LeftBarButtonItems property). 
+A button can contain an image or a text so to set and Back arrow image and ‘Close’ text, you need to set 2 buttons (image+text). Once you have set those buttons, you can configure the Horizontal offset to further configure the spacing between both buttons.
 
+One of the main difference I found was that can have your button(s) follow the Tint property or not. A Tint is used to quickly set all buttons on the Navigation Bar to a certain color and can be very useful. On the other hand, sometimes you just want more control both in spacing and in colors. 
+In the code you will see that most methods follow the Tint property but methods CreateRightToolbarButtons and CreateLeftToolbarButtons were provided to set multi colored buttons.  
 
-
-In conclusion; using this system should allow us to easily create any type of slide menu/form regardless of side, animation and size. We use grid to determine upfront where we want the menu to be displayed for interaction, and then use an animated version to move it to that exact location before switching between both. 
-
-Enjoy and any question or improvements, please let me know.
-
-Laobu!
-
-
-## REFERENCES
-- ‘Grid - Present views in grids.’ By Xamarin @ [https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/grid/](https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/grid/ )
-- ‘Carousel View’ by alexrainman @ [https://github.com/alexrainman/CarouselView](https://github.com/alexrainman/CarouselView)
-- ‘Creating Animations with Xamarin.Forms’ by David Britch @ [https://blog.xamarin.com/creating-animations-with-xamarin-forms/](https://blog.xamarin.com/creating-animations-with-xamarin-forms/)
-
-
-Author
-Laobu – Bernard Blanckaert
+![Demo](https://raw.githubusercontent.com/bbl-Laobu/CustomBackIconDemo/master/CustomBackIconDemo_opt.gif)
