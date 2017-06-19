@@ -4,31 +4,17 @@
     <ScrollView BackgroundColor="White">
         <StackLayout Padding="12" Spacing="12">
             <Label TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" 
-                Text="Welcome to the Custom Back Icon Demo." />
+                Text="Welcome to the Custom Back Button Style Demo." />
             <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                Text="Using the AnimationNavPage Component we can demonstrate how to create a custom transition between different pages." />
+                Text="A simple demo application demonstrating how to change the Back Button Icon and Style in a Navigation Bar of a Navigation Page, per individual page using Xamarin Forms and Custom Renderers." />
             <BoxView Color="Gray" HorizontalOptions="FillAndExpand" HeightRequest="1" />
 
             <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                Text="To demonstrate and achieve different types of Transitions between navigation pages, we are using the excellent ‘AnimationNavPage Component’ written by AlexandrNikulin. " />
+                Text="Changing the Back Button Style in a Navigation Bar of a Navigation Page directly from within the common Xamarin.Forms code is not possible. To be able to change the icon and style of the Back Button, a custom renderer implemented in the platform specific projects (iOS, Android…) is needed." />
             <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                Text="For this demo, we are using the trial version but you can easily purchase a full version on the component website (see link below)." />
-            <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                Text="Set-up and using the component happens in 3 steps:" />
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <BoxView Color="Transparent" HeightRequest="1" WidthRequest="20" HorizontalOptions="StartAndExpand" />
-                <StackLayout Orientation="Vertical">
-                    <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                        Text="1. Install and reference the DLL" />
-                    <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                        Text="2. Declare AnimationNavigationPage" />
-                    <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
-                        Text="3. Create and Animation page " />
-                </StackLayout>
-            </StackLayout>
+                Text="Using Custom renderers is the only way to fully take control of the Back Button Items on the different platforms. Once we implement this we can pretty much take full control of what is shown without losing the power of the underlying classes of Xamarin Forms." />
             
-            <Label TextColor="Blue" HorizontalOptions="StartAndExpand" Text="For further info please see the AnimatedTransitionNavPageDemo ReadMe on Github.">
+            <Label TextColor="Blue" HorizontalOptions="StartAndExpand" Text="For further info please see the CustomBackIconDemo ReadMe on Github.">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>
