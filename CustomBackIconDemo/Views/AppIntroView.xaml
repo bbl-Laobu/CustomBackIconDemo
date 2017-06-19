@@ -4,7 +4,7 @@
     <ScrollView BackgroundColor="White">
         <StackLayout Padding="12" Spacing="12">
             <Label TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" 
-                Text="Welcome to the Custom Page Transitions Demo." />
+                Text="Welcome to the Custom Back Icon Demo." />
             <Label TextColor="Black" HorizontalOptions="StartAndExpand" 
                 Text="Using the AnimationNavPage Component we can demonstrate how to create a custom transition between different pages." />
             <BoxView Color="Gray" HorizontalOptions="FillAndExpand" HeightRequest="1" />

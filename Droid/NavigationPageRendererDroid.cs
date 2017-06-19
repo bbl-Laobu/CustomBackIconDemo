@@ -48,12 +48,12 @@ namespace CustomBackIconDemo.Droid
                 SetHeaderIcons(returnPage);
             }
 
-            return base.OnPopViewAsync(page, false);
+            return base.OnPopViewAsync(page, animated);
         }
 
         protected override Task<bool> OnPushAsync(Page view, bool animated)
         {
-            var retVal = base.OnPushAsync(view, false);
+            var retVal = base.OnPushAsync(view, animated);
             SetHeaderIcons(view);
             return retVal;
         }

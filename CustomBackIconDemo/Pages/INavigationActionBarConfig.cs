@@ -26,19 +26,7 @@ namespace CustomBackIconDemo.Pages
 
             // .... (define yourself) 
 
-        // NOTE:
-        // Please extend with more properties if you want more dynamic control from you common project
-        // Implement actions based on your custom property in the Custom Navigation Page Renderers as 
-        // done for the BackButtonStyle property
-        //
-        // A few possible examples could be:
 
-        //Android 
-        // bool ShowAppIcon { get; set; } //True=Show, False=Hide
-
-        // IOS
-        // bool ShowBackButtonText { get; set; } //True=Show, False=Hide
-        // int SetTitleHorizontalPositionAdjustment { get; set; } //negative or positive
     }
 }
 

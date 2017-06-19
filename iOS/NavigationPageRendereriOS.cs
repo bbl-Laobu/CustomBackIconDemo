@@ -31,8 +31,7 @@ namespace CustomBackIconDemo.iOS
 
             SetBackButtonBasedOnInterface(page);
 
-			CreateRightToolbarButtons();  // uncomment to see an example of a platform specific right toolbar created
-			//CreateLeftToolbarButtons(); // uncomment to see a platform specific left toolbar created. Comment SetBackButtonBasedOnInterface out
+			//CreateRightToolbarButtons();  // uncomment to see an example of a platform specific right toolbar created
 
 			return retVal;
         }
