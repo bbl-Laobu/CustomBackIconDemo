@@ -214,6 +214,6 @@ Laobu!
 - ‘NavigationRender Issue’@ [https://forums.xamarin.com/discussion/27745/navigationrender-issue](https://forums.xamarin.com/discussion/27745/navigationrender-issue)
 - ‘iOS and Android Design Guidelines Cheat Sheet’ by Jake McKibben @ [https://www.kinvey.com/ios-and-android-design-guidelines-cheat-sheet/](https://www.kinvey.com/ios-and-android-design-guidelines-cheat-sheet/)
 
-## ATHOR
+## AUTHOR
 Laobu – Bernard Blanckaert
 
