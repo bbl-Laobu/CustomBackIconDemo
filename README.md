@@ -164,7 +164,7 @@ public partial class MenuPage : ContentPage, INavigationActionBarConfig
 
 How each value changes the Style is up to you in the platform specific renderers. You decide what the style for ‘0’ or ‘1’ means on iOS or on Android. Each platform can implement something similar or implement a style more in line with the design guidelines of the platform. 
 
-## WHAT WE DID UP TILL NOW
+## WHAT WE DID UP UNTILL NOW
 Let’s recap; we created and used a custom NavigationPage to initiated our Main. We then created render classes per platform and referenced back to our Custom Navigation Page to make sure the renderer is used every time we POP or PUSH a page. Lastly, we added a property per page using an Interface which allows us to set a Style ‘flag’, which will be picked up in the renderer and used to display the correct style for that platform. 
 Time for us to now actually set the Style we want.  
 
