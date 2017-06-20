@@ -200,7 +200,7 @@ However, the demo at this stage is only able to work using the Non AppCompat con
 AppCompat and non AppCompat use different Navigation Renderers and while developing this demo, we discovered a bug where OnPop and OnPush are not accessible from the customer renderer thereby preventing us from injecting our own code. The bug was reported and a pull request was added (see https://bugzilla.xamarin.com/show_bug.cgi?id=57578).  I will update the code and documentation as soon as a fix has been released.  
 
 ## Conclusion
-Using Custom renderers is the only way to fully take control of the Back Button Items on the different platforms. Once we implement this we can pretty much take full control of what is shown without losing the power of the underlying classes of Xamarin Forms.
+Using Custom renderers is the only way to configure the Back Button Style on the different platforms. Once we implement this we can pretty much take full control of what is shown without losing the power of the underlying classes of Xamarin Forms.
 
 Enjoy and any question or improvements, please let me know.
 
