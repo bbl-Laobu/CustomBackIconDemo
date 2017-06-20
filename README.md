@@ -208,6 +208,7 @@ Laobu!
 
 
 ## REFERENCES
+- ‘Change the Back Button’ by Xamarin @ [https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/change_the_back_button/](https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/change_the_back_button/)
 - ‘Custom Renderers’ by Xamarin @ [https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/](https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/)
 - ‘How to change the navigation page back icon?’ by JESSEJIANG @ [https://jessejiang.xyz/2016/01/17/how-to-change-the-navigation-page-back-icon/](https://jessejiang.xyz/2016/01/17/how-to-change-the-navigation-page-back-icon/)
 - ‘Reduce Toolbar Icon Padding(Xamarin.Forms)’ by Cameron Wood @ [https://stackoverflow.com/questions/39144099/reduce-toolbar-icon-paddingxamarin-forms](https://stackoverflow.com/questions/39144099/reduce-toolbar-icon-paddingxamarin-forms)
